@@ -1,0 +1,123 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.helloWorld {
+  overflow: hidden;
+  padding: 1em;
+  color: "[theme:bodyText, default: #323130]";
+  color: var(--bodyText);
+  &.teams {
+    font-family: $ms-font-family-fallbacks;
+  }
+}
+
+.welcome {
+  text-align: center;
+}
+
+.welcomeImage {
+  width: 100%;
+  max-width: 420px;
+}
+
+.links {
+  a {
+    text-decoration: none;
+    color: "[theme:link, default:#03787c]";
+    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+
+    &:hover {
+      text-decoration: underline;
+      color: "[theme:linkHovered, default: #014446]";
+      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+    }
+  }
+}
+
+.mapContainer {
+  position: relative;
+  width: 100%; /* Adjust the width as needed */
+  border: 1px solid #ccc;
+  background-image: url('../../helloWorld/assets/main.png'); /* Replace with your static map image */
+  background-size: cover;
+  background-position: center;
+  height: 30vw; /* Adjust the height based on width or any desired aspect ratio */
+}
+
+.marker {
+  position: absolute;
+  width: 3vw; /* Adjust the width of the marker */
+  height: 4vw; /* Adjust the height of the marker */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.marker:hover {
+  transform: scale(1.5); /* Scale the marker on hover */
+}
+
+.marker img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.label {
+  position: absolute;
+  font-size: 1.5vw; /* Adjust the font size of the label */
+  white-space: nowrap; /* Prevent label from breaking into multiple lines */
+  display: none;
+}
+
+.connector {
+  position: absolute;
+  border: 1px solid blue; /* Change border color as needed */
+  z-index: 0; /* Ensure the connector is behind the markers */
+  display: none;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1; /* Ensure the popup is on top of markers */
+}
+
+.closeButton {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  cursor: pointer;
+}
+
+/* Add custom styles for other map elements if needed */
+
+@media (max-width: 600px) {
+  /* Adjust styles for smaller screens if needed */
+  .map-container {
+    width: 90%;
+    height: 80vw;
+  }
+
+  .marker {
+    width: 2vw;
+    height: 3vw;
+  }
+
+  .label {
+    font-size: 1vw;
+  }
+
+  .popup {
+    padding: 4vw;
+  }
+
+  .close-button {
+    top: 2vw;
+    right: 2vw;
+  }
+}
